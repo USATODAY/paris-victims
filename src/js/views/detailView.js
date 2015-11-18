@@ -19,16 +19,20 @@ define([
           "click .twitter-share": "twitterShare",
           "click .iapp-detail-bg": "removeHighlight",
           'click .iapp-like-button': 'onLikeClick',
-          'click .iapp-dislike-button': 'onDislikeClick' 
+          'click .iapp-dislike-button': 'onDislikeClick',
+          'click .iapp-next-detail': 'onNextClick',
+          'click .iapp-previous-detail': 'onPreviousClick'
         },
 
-        initialize: function() {
+        initialize: function(args) {
 
           // router.navigate("movie/" + this.model.get("rowNumber"));
           this.listenTo(Backbone, "highlight:remove", this.removeHighlight);
           this.listenTo(this.model, 'change:isLiked', this.onLikeChange);
           this.listenTo(this.model, 'change:isDisliked', this.onDislikeChange);
           this.listenTo(this.model, 'change:highlight', this.removeCard);
+          this.listenTo(Backbone, "window:keydown", this.onKeyDown);
+          this.opts = args.opts;
         },
         render: function() {
           this.$el.empty();
@@ -41,7 +45,7 @@ define([
           }
 
           
-          this.$el.html(this.template(this.model.toJSON()));   
+          this.$el.html(this.template({person: this.model.toJSON(), showNext: this.opts.showNext, showPrevious: this.opts.showPrevious}));   
           this.postRender(this.$el);
           return this;
         },
@@ -65,14 +69,19 @@ define([
                 this.$el.removeClass("modal-show");
                 var _this = this;
                 
-                _.delay(function() {
                   _this.remove();
-                }, 500);
             
             }
            
         
           
+        },
+
+        onNextClick: function() {
+          Backbone.trigger("detail:next");
+        },
+        onPreviousClick: function() {
+          Backbone.trigger("detail:previous");
         },
 
 
@@ -112,6 +121,14 @@ define([
             this.$el.addClass('iapp-disliked');
           } else {
             this.$el.removeClass('iapp-disliked');
+          }
+        },
+        onKeyDown: function(e) {
+          if (e.keyCode == 37 && this.opts.showPrevious) {
+            this.onPreviousClick();
+          }
+          if (e.keyCode == 39 && this.opts.showNext) {
+            this.onNextClick();
           }
         }
 

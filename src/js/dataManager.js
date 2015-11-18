@@ -29,13 +29,14 @@ define(
         getData: function() {
             var _this = this;
             jQuery.getJSON(dataURL, function(data) {        
-                _this.data = data;
-                _.each(_this.data.people, function(dataObj) {
-                    _.extend(dataObj, {
-                        searchName: _this._normalizeName(dataObj.guest)
-                    });
-                });
-                _this.organizeTags();
+                _this.data = data[0];
+                _this.data.copy = _this.data.copy[0];
+                // _.each(_this.data.people, function(dataObj) {
+                //     _.extend(dataObj, {
+                //         searchName: _this._normalizeName(dataObj.guest)
+                //     });
+                // });
+                // _this.organizeTags();
                 Backbone.trigger("data:ready", this);
             });
         },

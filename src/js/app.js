@@ -37,6 +37,10 @@ define([
                 Backbone.trigger('window:scroll');
             });
 
+            $(window).on('keydown', function(e) {
+                Backbone.trigger('window:keydown', e);
+            });
+
 
             //Make data request
           

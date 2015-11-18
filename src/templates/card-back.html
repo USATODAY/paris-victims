@@ -2,6 +2,9 @@
       <div class="card card-detail">
       
         <div class="iapp-detail-image-wrap">
+        <% if (person.photo !== "") { %>
+            <img src="<%=person.photo%>" alt="<%=person.name%>">
+        <% } %>
         </div>
       
         <div class="close-card">
@@ -13,22 +16,23 @@
       
       
         <div class="iapp-detail-info">
-            <h2 class="card-back-header"><%= guest %> </h2>
-            <p class="iapp-summary"><%=description%><% if (category == "house" || category =="senate") { %>, <% print(party.charAt(0).toUpperCase() + party.slice(1))%>, <%=state%><% } %></p>
-            <table class="table">
-                
-            <% _.each(appearances, function(appearance) { %>
-                <tr class="iapp-card-back-detail-appearance">
-                    <td class="iapp-card-back-detail-appearance-date"><%=appearance.date%></td><td class="iapp-card-back-detail-appearance-network"><%=showNames[appearance.network]%></td><td><%=appearance.network%></td><td class="iapp-card-back-detail-description"><%=appearance.description%></td>
-                </tr>
-            
-            <%})%>
-
-            </table>
+            <h2 class="card-back-header"><%= person.name %> </h2>
+            <p class="iapp-summary"><%=person.bio%></p>
         </div>
       
       
       </div>
+      <% if (showNext) { %>
+      <div class="iapp-next-detail iapp-detail-nav">
+        <img class="" src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/right-arrow.png">
+        Next
+      </div>
+      <% } %>
+      <% if (showPrevious) { %>
+      <div class="iapp-previous-detail iapp-detail-nav">
+        <img class="" src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/left-arrow.png">
+        Back</div>
+      <% } %>
       
         <div class="iapp-detail-bg"></div> 
 

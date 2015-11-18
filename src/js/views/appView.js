@@ -53,12 +53,12 @@ define([
     addSubViews: function() {
       this.shareModel = new ShareModel({default_share_language: dataManager.data.copy.default_share_language});
       this.shareView = new ShareView({model: this.shareModel});
-      this.menuView = new MenuView({model: new MenuModel()});
-      this.itemsCollection = new ItemsCollection(dataManager.data.people); 
+      // this.menuView = new MenuView({model: new MenuModel()});
+      this.itemsCollection = new ItemsCollection(dataManager.data.victims); 
       this.cardsView = new CardsView({collection: this.itemsCollection});
-      this.lastWeekCollection = new LastWeekCollection(this.itemsCollection.where({'last_week': true}));
-      this.lastWeekView = new LastWeekView({collection: this.lastWeekCollection});
-      this.$el.append(this.lastWeekView.el);
+      // this.lastWeekCollection = new LastWeekCollection(this.itemsCollection.where({'last_week': true}));
+      // this.lastWeekView = new LastWeekView({collection: this.lastWeekCollection});
+      // this.$el.append(this.lastWeekView.el);
       Backbone.history.start();
     },
 

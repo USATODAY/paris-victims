@@ -33,6 +33,8 @@ define([
         this.listenTo(Backbone, 'route:share', this.onRouteShare);
         this.listenTo(Backbone, 'app:reset', this.onAppReset);
         this.listenTo(Backbone, 'search', this.searchByName);
+        this.listenTo(Backbone, 'detail:next', this.showNextDetail);
+        this.listenTo(Backbone, 'detail:previous', this.showPreviousDetail);
         this.render();
 
     },
@@ -44,10 +46,40 @@ define([
 
     showDetail: function(model) {
       if(model.get('highlight')) {
-        this.detailView =  new detailView({model: model});
+        this.currentModelIndex = this.collection.models.indexOf(model);
+        var showNext = true,
+            showPrevious = true;
+        if (this.currentModelIndex <=0) {
+          showNext = false;
+        } else if (this.currentModelIndex >= this.collection.models.length -1) {
+          showPrevious = false;
+        }
+        this.detailView =  new detailView({
+          model: model, 
+          opts: {
+            showNext: showNext,
+            showPrevious: showPrevious
+          }
+        });
         this.$el.append(this.detailView.render().el);
       }
       
+    },
+
+    showPreviousDetail: function() {
+      this.detailView.removeHighlight();
+      var newIndex = this.currentModelIndex + 1;
+      if (newIndex <= this.collection.models.length - 1) {
+        this.collection.models[this.currentModelIndex + 1].set({'highlight': true});
+      }
+    },
+
+    showNextDetail: function() {
+      this.detailView.removeHighlight();
+      var newIndex = this.currentModelIndex - 1;
+      if (newIndex >= 0) {
+        this.collection.models[this.currentModelIndex - 1].set({'highlight': true});
+      }
     },
 
     render: function() {
