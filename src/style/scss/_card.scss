@@ -106,7 +106,7 @@
 
 .close-card {
   // background-image: url('http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/close-icon.svg');
-  background: $blue;
+  background: $medium-grey;
   @include BoxShadowHelper(2);
   border-radius: 50%;
   cursor: pointer;
@@ -163,6 +163,14 @@
   display: block;
   height: auto;
   width: 100%;
+}
+
+.cover-img-wrap {
+  // display: inline-block;
+  // height: 100px;
+  // overflow: hidden;
+  // position: relative;
+  // width: 100px;
 }
 
 .title-overlay {
@@ -362,4 +370,11 @@
     text-align: center;
     transform: translate( -50%, -50%);
     top: 50%;
+}
+
+.iapp-detail-flag-icon {
+  margin-right: 10px;
+  position: relative;
+  top: -3px;
+  width: 30px;
 }

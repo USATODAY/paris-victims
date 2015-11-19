@@ -40,10 +40,8 @@ define([
     },
 
     addOne: function(item) {
-      if (item.get('name') !== "") {
-        var view = new cardView({model: item});
-        this.$el.append(view.render().el);
-      }
+      var view = new cardView({model: item});
+      this.$el.append(view.render().el);
     },
 
     showDetail: function(model) {

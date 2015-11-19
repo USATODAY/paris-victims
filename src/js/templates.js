@@ -25,13 +25,19 @@ function print() { __p += __j.call(arguments, '') }
 with (obj) {
 __p += '\n      <div class="card card-detail">\n      \n        <div class="iapp-detail-image-wrap">\n        ';
  if (person.photo !== "") { ;
-__p += '\n            <img src="' +
+__p += '\n            <img class="iapp-detail-image" src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/victims/' +
 ((__t = (person.photo)) == null ? '' : __t) +
 '" alt="' +
 ((__t = (person.name)) == null ? '' : __t) +
 '">\n        ';
  } ;
 __p += '\n        </div>\n      \n        <div class="close-card">\n            <img class="iapp-close-card-inner" src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/close-icon.svg">\n            \n            </img>\n        </div>\n      \n      \n      \n        <div class="iapp-detail-info">\n            ';
+ if (person.photo !== "") { ;
+__p += '\n              <p class="iapp-card-back-photo-credit">Photo: ' +
+((__t = ( person.photo_source )) == null ? '' : __t) +
+'</p>\n            ';
+ } ;
+__p += '\n            ';
  if (person.place) {;
 __p += '\n              <span class="label label-default">' +
 ((__t = ( person.place )) == null ? '' : __t) +
@@ -45,7 +51,9 @@ __p += ', ' +
  };
 __p += '\n            </h2>\n            \n            \n            ';
  if (person.nationality) {;
-__p += '\n              <p class="iapp-card-info-text">NATIONALITY: ' +
+__p += '\n              <p class="iapp-card-info-text"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/flags/';
+ print(person.nationality.replace(" ", "")) ;
+__p += '.jpg" alt="" class="iapp-detail-flag-icon">' +
 ((__t = ( person.nationality )) == null ? '' : __t) +
 '</p>\n            ';
  };
@@ -70,14 +78,28 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="iapp-card-info">\n    <h2 class="iapp-card-info-header">\n        ' +
+__p += '<!--\n';
+ if (photo !== "") { ;
+__p += '\n<div class="cover-img-wrap">\n    <img class="cover-img" src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/victims/' +
+((__t = (photo)) == null ? '' : __t) +
+'" alt="' +
+((__t = (name)) == null ? '' : __t) +
+'">\n</div>\n';
+ } ;
+__p += '\n-->\n<div class="iapp-card-info">\n    <h2 class="iapp-card-info-header">\n        ' +
 ((__t = ( name )) == null ? '' : __t);
  if (age) {;
 __p += ', ' +
 ((__t = ( age )) == null ? '' : __t) +
 '</p>';
  };
-__p += '\n    </h2>\n    \n</div>';
+__p += '\n    </h2>\n    <!--\n    ';
+ if (photo !== "") { ;
+__p += '\n        <p class="iapp-card-info-photo-credit">Photo: ' +
+((__t = ( photo_source )) == null ? '' : __t) +
+'</p>\n    ';
+ } ;
+__p += '\n    -->\n    \n</div>';
 
 }
 return __p

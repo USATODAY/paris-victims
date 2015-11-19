@@ -3,7 +3,7 @@
       
         <div class="iapp-detail-image-wrap">
         <% if (person.photo !== "") { %>
-            <img src="<%=person.photo%>" alt="<%=person.name%>">
+            <img class="iapp-detail-image" src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/victims/<%=person.photo%>" alt="<%=person.name%>">
         <% } %>
         </div>
       
@@ -16,6 +16,9 @@
       
       
         <div class="iapp-detail-info">
+            <% if (person.photo !== "") { %>
+              <p class="iapp-card-back-photo-credit">Photo: <%= person.photo_source %></p>
+            <% } %>
             <% if (person.place) {%>
               <span class="label label-default"><%= person.place %></span>
             <% }%>
@@ -25,7 +28,7 @@
             
             
             <% if (person.nationality) {%>
-              <p class="iapp-card-info-text">NATIONALITY: <%= person.nationality %></p>
+              <p class="iapp-card-info-text"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/flags/<% print(person.nationality.replace(" ", "")) %>.jpg" alt="" class="iapp-detail-flag-icon"><%= person.nationality %></p>
             <% }%>
             <p class="iapp-summary"><%=person.bio%></p>
         </div>
