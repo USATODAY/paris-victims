@@ -10,7 +10,7 @@ __p += '<div class="iapp-project-info-wrap">\n    <h1 class="iapp-page-header">'
 ((__t = ( header )) == null ? '' : __t) +
 '</h1>\n    <p class="iapp-page-chatter">' +
 ((__t = ( chatter )) == null ? '' : __t) +
-' </p>\n    <p class="iapp-page-chatter">Last updated on: ' +
+' </p>\n    <p class="iapp-page-chatter iapp-dark-blue">Last updated on: ' +
 ((__t = (updated_at )) == null ? '' : __t) +
 '</p>\n    <div class="iapp-share-wrap"></div>\n     \n</div>\n<div class="no-results-wrap">\n    <div class=\'no-results-message alert alert-danger\'><strong>No results!</strong> Try searching for another guest.</div>\n</div>\n<div class="iapp-menu"></div>\n<div id="card-wrap" class="iapp-card-wrap"></div>\n\n\n\n<div class="iapp-end-modal-wrap"></div>\n\n';
 
@@ -31,9 +31,25 @@ __p += '\n            <img src="' +
 ((__t = (person.name)) == null ? '' : __t) +
 '">\n        ';
  } ;
-__p += '\n        </div>\n      \n        <div class="close-card">\n            <img class="iapp-close-card-inner" src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/close-icon.svg">\n            \n            </img>\n        </div>\n      \n      \n      \n        <div class="iapp-detail-info">\n            <h2 class="card-back-header">' +
-((__t = ( person.name )) == null ? '' : __t) +
-' </h2>\n            <p class="iapp-summary">' +
+__p += '\n        </div>\n      \n        <div class="close-card">\n            <img class="iapp-close-card-inner" src="http://www.gannett-cdn.com/experiments/usatoday/2015/02/red-carpet/img/close-icon.svg">\n            \n            </img>\n        </div>\n      \n      \n      \n        <div class="iapp-detail-info">\n            ';
+ if (person.place) {;
+__p += '\n              <span class="label label-default">' +
+((__t = ( person.place )) == null ? '' : __t) +
+'</span>\n            ';
+ };
+__p += '\n            <h2 class="card-back-header">\n              ' +
+((__t = ( person.name )) == null ? '' : __t);
+ if (person.age) {;
+__p += ', ' +
+((__t = ( person.age )) == null ? '' : __t);
+ };
+__p += '\n            </h2>\n            \n            \n            ';
+ if (person.nationality) {;
+__p += '\n              <p class="iapp-card-info-text">NATIONALITY: ' +
+((__t = ( person.nationality )) == null ? '' : __t) +
+'</p>\n            ';
+ };
+__p += '\n            <p class="iapp-summary">' +
 ((__t = (person.bio)) == null ? '' : __t) +
 '</p>\n        </div>\n      \n      \n      </div>\n      ';
  if (showNext) { ;
@@ -41,7 +57,7 @@ __p += '\n      <div class="iapp-next-detail iapp-detail-nav">\n        <img cla
  } ;
 __p += '\n      ';
  if (showPrevious) { ;
-__p += '\n      <div class="iapp-previous-detail iapp-detail-nav">\n        <img class="" src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/left-arrow.png">\n        Back</div>\n      ';
+__p += '\n      <div class="iapp-previous-detail iapp-detail-nav">\n        <img class="" src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/left-arrow.png">\n        Previous</div>\n      ';
  } ;
 __p += '\n      \n        <div class="iapp-detail-bg"></div> \n\n';
 
@@ -51,11 +67,17 @@ return __p
 
 this["templates"]["card-front.html"] = function(obj) {
 obj || (obj = {});
-var __t, __p = '', __e = _.escape;
+var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
+function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<div class="iapp-card-info">\n    <h2 class="iapp-card-info-header">' +
-((__t = ( name)) == null ? '' : __t) +
-'</h2>\n    <p class="iapp-card-info-text"></p>\n</div>';
+__p += '<div class="iapp-card-info">\n    <h2 class="iapp-card-info-header">\n        ' +
+((__t = ( name )) == null ? '' : __t);
+ if (age) {;
+__p += ', ' +
+((__t = ( age )) == null ? '' : __t) +
+'</p>';
+ };
+__p += '\n    </h2>\n    \n</div>';
 
 }
 return __p

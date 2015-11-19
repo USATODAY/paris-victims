@@ -74,11 +74,15 @@ p {
 .card-back-header {
   color: $dark-grey;
   // border-bottom: solid 1px $dark-blue;
-  font-family: "Futura Today Bold", Arial, sans-serif;
+  font-family: "Futura Today Normal", Arial, sans-serif;
   margin-bottom: 0.5em;
-  margin-top: 0;
+  margin-top: 0.5em;
   // text-decoration: underline;
-  text-transform: uppercase;
+  // text-transform: uppercase;
+}
+
+.iapp-dark-blue {
+  color: $dark-blue;
 }
 
 .read-more-link {

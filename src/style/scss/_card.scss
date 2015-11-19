@@ -248,9 +248,18 @@
 }
 
 .iapp-card-info-header {
-  font-family: "Futura Today Demibold", Arial,sans-serif;
+  font-family: "Futura Today Light", Arial,sans-serif;
   font-size: 1.2em;
   margin: 0 0 .5em 0;
+}
+
+
+.card-detail .iapp-card-info-text {
+  font-family: "Futura Today Normal", Arial,sans-serif;
+}
+
+.iapp-card-info-blue {
+  color: $medium-grey;
 }
 
 .iapp-card-info-text {

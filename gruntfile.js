@@ -312,17 +312,17 @@ module.exports = function(grunt) {
       },
       upload1: {
         files: {
-          '/17200/experiments/usatoday/2015/03/sunday-shows/': 'js/main.js'
+          '/17200/experiments/usatoday/2015/11/paris-victims/': 'js/main.js'
         }
       },
       upload2: {
         files: {
-          '/17200/experiments/usatoday/2015/03/sunday-shows/': 'style/project.css'
+          '/17200/experiments/usatoday/2015/11/paris-victims/': 'style/project.css'
         }
       },
       upload3: {
         files: {
-          // '/17200/experiments/usatoday/2015/03/sunday-shows/': 'data/*.json'
+          '/17200/experiments/usatoday/2015/11/paris-victims/': 'data/*.json'
         }
       }
     },

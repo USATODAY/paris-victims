@@ -39,9 +39,11 @@ define([
 
     },
 
-    addOne: function(question) {
-      var view = new cardView({model: question});
-      this.$el.append(view.render().el);
+    addOne: function(item) {
+      if (item.get('name') !== "") {
+        var view = new cardView({model: item});
+        this.$el.append(view.render().el);
+      }
     },
 
     showDetail: function(model) {
