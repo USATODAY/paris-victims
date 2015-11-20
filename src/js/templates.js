@@ -12,7 +12,9 @@ __p += '<div class="iapp-project-info-wrap">\n    <h1 class="iapp-page-header">'
 ((__t = ( chatter )) == null ? '' : __t) +
 ' </p>\n    <p class="iapp-page-chatter iapp-dark-blue">Last updated on: ' +
 ((__t = (updated_at )) == null ? '' : __t) +
-'</p>\n    <div class="iapp-share-wrap"></div>\n     \n</div>\n<div class="no-results-wrap">\n    <div class=\'no-results-message alert alert-danger\'><strong>No results!</strong> Try searching for another guest.</div>\n</div>\n<div class="iapp-menu"></div>\n<div id="card-wrap" class="iapp-card-wrap"></div>\n\n\n\n<div class="iapp-end-modal-wrap"></div>\n\n';
+'</p>\n    <div class="iapp-share-wrap"></div>\n     \n</div>\n<div class="no-results-wrap">\n    <div class=\'no-results-message alert alert-danger\'><strong>No results!</strong> Try searching for another guest.</div>\n</div>\n<div class="iapp-menu"></div>\n<div id="card-wrap" class="iapp-card-wrap"></div>\n<div class="iapp-credits-wrap">\n    <p class="iapp-page-credits"><strong>Credits: </strong>' +
+((__t = ( credits )) == null ? '' : __t) +
+'</p>\n</div>\n\n\n\n<div class="iapp-end-modal-wrap"></div>\n\n';
 
 }
 return __p
@@ -78,7 +80,7 @@ obj || (obj = {});
 var __t, __p = '', __e = _.escape, __j = Array.prototype.join;
 function print() { __p += __j.call(arguments, '') }
 with (obj) {
-__p += '<!--\n';
+__p += '\n';
  if (photo !== "") { ;
 __p += '\n<div class="cover-img-wrap">\n    <img class="cover-img" src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/victims/' +
 ((__t = (photo)) == null ? '' : __t) +
@@ -86,7 +88,7 @@ __p += '\n<div class="cover-img-wrap">\n    <img class="cover-img" src="http://w
 ((__t = (name)) == null ? '' : __t) +
 '">\n</div>\n';
  } ;
-__p += '\n-->\n<div class="iapp-card-info">\n    <h2 class="iapp-card-info-header">\n        ' +
+__p += '\n\n<div class="iapp-card-info">\n    <h2 class="iapp-card-info-header">\n        ' +
 ((__t = ( name )) == null ? '' : __t);
  if (age) {;
 __p += ', ' +
