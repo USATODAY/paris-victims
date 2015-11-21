@@ -55,7 +55,7 @@ __p += '\n            </h2>\n            \n            \n            ';
  if (person.nationality) {;
 __p += '\n              <p class="iapp-card-info-text"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/flags/';
  print(person.nationality.replace(" ", "")) ;
-__p += '.jpg" alt="" class="iapp-detail-flag-icon">' +
+__p += '.png" alt="nationality flag" class="iapp-detail-flag-icon">' +
 ((__t = ( person.nationality )) == null ? '' : __t) +
 '</p>\n            ';
  };

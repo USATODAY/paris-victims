@@ -28,7 +28,7 @@
             
             
             <% if (person.nationality) {%>
-              <p class="iapp-card-info-text"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/flags/<% print(person.nationality.replace(" ", "")) %>.jpg" alt="" class="iapp-detail-flag-icon"><%= person.nationality %></p>
+              <p class="iapp-card-info-text"><img src="http://www.gannett-cdn.com/experiments/usatoday/2015/11/paris-victims/img/flags/<% print(person.nationality.replace(" ", "")) %>.png" alt="nationality flag" class="iapp-detail-flag-icon"><%= person.nationality %></p>
             <% }%>
             <p class="iapp-summary"><%=person.bio%></p>
         </div>
